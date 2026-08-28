@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dave Design - Creative design and digital services by Dave.">
+<title>Dave Design | Creative Designer</title>
+<style>
+:root{--bg:#f7f8fc;--card:#fff;--text:#111827;--muted:#667085;--primary:#6c4cff;--secondary:#00bfa6;--border:#e7e9f2;--shadow:0 18px 50px rgba(17,24,39,.09)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+button,input,textarea{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.45rem;font-weight:900;letter-spacing:-.5px}.logo span{color:var(--primary)}
+.nav-links{display:flex;gap:26px;align-items:center}.nav-links a{font-weight:600;color:#475467;transition:.25s}.nav-links a:hover,.nav-links a.active{color:var(--primary)}
+.menu-btn{display:none;border:0;background:none;font-size:1.6rem;cursor:pointer}
+.hero{min-height:calc(100vh - 74px);display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:60px;padding:80px 0}
+.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:#eeeaff;color:var(--primary);font-weight:800;font-size:.85rem;margin-bottom:18px}
+.hero h1{font-size:clamp(3rem,7vw,5.5rem);line-height:.98;letter-spacing:-4px;margin-bottom:20px}
+.hero h1 span{color:var(--primary)}
+.hero h2{font-size:clamp(1.2rem,2.5vw,1.8rem);margin-bottom:16px}
+.hero p{color:var(--muted);max-width:600px;font-size:1.05rem}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:12px;font-weight:800;border:1px solid var(--border);transition:.25s;cursor:pointer}
+.btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(108,76,255,.18)}
+.btn.outline{background:#fff}
+.hero-art{position:relative;display:grid;place-items:center;min-height:420px}
+.orb{width:330px;height:330px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#a88cff 55%,var(--secondary));box-shadow:0 35px 80px rgba(108,76,255,.28);display:grid;place-items:center;transform:rotate(-7deg)}
+.art-card{background:rgba(255,255,255,.94);padding:28px;border-radius:24px;box-shadow:var(--shadow);width:240px;text-align:center;transform:rotate(7deg)}
+.art-card .icon{font-size:4rem;margin-bottom:8px}.art-card h3{font-size:1.4rem}.art-card p{font-size:.9rem;color:var(--muted)}
+section{padding:95px 0}.section-head{text-align:center;margin-bottom:45px}.section-head .eyebrow{color:var(--primary);font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:.78rem}.section-head h2{font-size:clamp(2rem,4vw,3rem);margin:8px 0}.section-head p{max-width:650px;margin:auto;color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+.profile-box{min-height:360px;border-radius:28px;background:linear-gradient(145deg,#e9e5ff,#e7fff9);display:grid;place-items:center;box-shadow:var(--shadow);font-size:7rem}
+.about-text p{color:var(--muted);margin:15px 0}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:25px 0}.fact{background:var(--card);border:1px solid var(--border);padding:18px;border-radius:16px}.fact strong{display:block;font-size:1.35rem}.fact span{color:var(--muted);font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:26px;box-shadow:0 8px 30px rgba(17,24,39,.04);transition:.25s}.card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}.card-icon{font-size:2rem;margin-bottom:14px}.card h3{margin-bottom:8px}.card p{color:var(--muted)}
+.skill{margin-bottom:20px}.skill-top{display:flex;justify-content:space-between;font-weight:800;margin-bottom:8px}.bar{height:9px;background:#eceef5;border-radius:20px;overflow:hidden}.bar i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:20px}
+.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:28px}.filter{border:1px solid var(--border);background:#fff;padding:9px 15px;border-radius:999px;cursor:pointer;font-weight:700}.filter.active,.filter:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.project-img{height:190px;border-radius:15px;background:linear-gradient(135deg,#17112d,#7659ff);display:grid;place-items:center;color:#fff;font-size:3rem;margin-bottom:18px}.project-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tag{font-size:.75rem;padding:5px 9px;background:#f0efff;color:var(--primary);border-radius:999px;font-weight:800}
+.why{background:#111827;color:#fff}.why .section-head p{color:#aab1bf}.why .card{background:#1a2333;border-color:#293447}.why .card p{color:#aab1bf}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px}.contact-info{display:grid;gap:15px}.contact-item{background:#fff;border:1px solid var(--border);padding:18px;border-radius:16px}.contact-item small{color:var(--muted);display:block}.socials{display:flex;gap:10px;margin-top:18px}.socials a{width:42px;height:42px;display:grid;place-items:center;background:#fff;border:1px solid var(--border);border-radius:12px;font-weight:900}
+form{background:#fff;border:1px solid var(--border);padding:28px;border-radius:20px;box-shadow:var(--shadow)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:grid;gap:7px;margin-bottom:15px}.field.full{grid-column:1/-1}.field label{font-weight:800;font-size:.9rem}.field input,.field textarea,.field select{width:100%;padding:12px 14px;border:1px solid #dfe2eb;border-radius:10px;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--primary);box-shadow:0 0 0 3px #eeeaff}.field textarea{min-height:140px;resize:vertical}
+footer{background:#0b1020;color:#cbd2df;padding:45px 0 25px}.footer-grid{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer-title{color:#fff;font-size:1.3rem;font-weight:900}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.copyright{border-top:1px solid #20293b;margin-top:28px;padding-top:20px;text-align:center;font-size:.85rem}
+.top{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border:0;border-radius:50%;background:var(--primary);color:#fff;cursor:pointer;display:none;font-size:1.2rem;z-index:999}
+.reveal{opacity:0;transform:translateY(25px);transition:.7s}.reveal.show{opacity:1;transform:none}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);background:#111827;color:#fff;padding:12px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.3s;z-index:2000}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:850px){.hero,.about-grid,.contact-grid{grid-template-columns:1fr}.hero{padding:65px 0}.hero-art{min-height:330px}.grid{grid-template-columns:1fr 1fr}.nav-links{position:absolute;top:74px;left:0;right:0;background:#fff;display:none;flex-direction:column;align-items:flex-start;padding:20px 4%;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.menu-btn{display:block}}
+@media(max-width:560px){.grid,.form-grid,.facts{grid-template-columns:1fr}.hero h1{letter-spacing:-2px}.orb{width:260px;height:260px}.art-card{width:205px;padding:20px}.profile-box{min-height:280px}}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <a class="logo" href="#home">Dave<span>Design</span></a>
+    <button class="menu-btn" aria-label="Open menu">☰</button>
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#skills">Skills</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero container" id="home">
+  <div class="reveal">
+    <span class="badge">CREATIVE DESIGN • DIGITAL SOLUTIONS</span>
+    <h1>Hi, I'm <span>Dave.</span></h1>
+    <h2>Creative Designer & Digital Professional</h2>
+    <p>Welcome to Dave Design — where creativity meets professional digital design. I create clean, modern and impactful designs that help individuals and businesses present themselves professionally.</p>
+    <div class="actions"><a class="btn primary" href="#portfolio">View My Work</a><a class="btn outline" href="https://wa.me/2347078610634?text=Hello%20Dave%20Design%2C%20I%20would%20like%20to%20make%20an%20enquiry%20about%20your%20design%20services." target="_blank">💬 WhatsApp Me</a></div>
+  </div>
+  <div class="hero-art reveal"><div class="orb"><div class="art-card"><div class="icon">🎨</div><h3>Dave Design</h3><p>Creative ideas. Professional results.</p></div></div></div>
+</section>
+
+<section id="about">
+<div class="container">
+  <div class="section-head reveal"><div class="eyebrow">About Me</div><h2>Designing ideas into reality.</h2><p>A creative portfolio built to showcase my work, skills and digital services.</p></div>
+  <div class="about-grid">
+    <div class="profile-box reveal">✦</div>
+    <div class="about-text reveal"><h2>About Dave Design</h2><p>I'm Dave, the creative mind behind Dave Design. I specialize in creating professional visual designs and digital solutions that help individuals, businesses and organizations communicate their ideas effectively.</p><p>My focus is on clean presentation, attention to detail and designs that make a strong first impression.</p>
+      <div class="facts"><div class="fact"><strong>Creative</strong><span>Design Thinking</span></div><div class="fact"><strong>Modern</strong><span>Visual Style</span></div><div class="fact"><strong>Client</strong><span>Focused</span></div></div>
+      <a class="btn primary" href="#contact">Let's Work Together</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="services">
+<div class="container"><div class="section-head reveal"><div class="eyebrow">What I Do</div><h2>Professional Services</h2><p>Creative solutions for individuals, brands and businesses.</p></div>
+<div class="grid">
+  <article class="card reveal"><div class="card-icon">🎨</div><h3>Graphic Design</h3><p>Professional flyers, posters, banners, business cards and promotional materials.</p></article>
+  <article class="card reveal"><div class="card-icon">✦</div><h3>Logo & Branding</h3><p>Modern logos and visual identities that give businesses a memorable presence.</p></article>
+  <article class="card reveal"><div class="card-icon">📄</div><h3>Document Design</h3><p>Invoices, receipts, certificates, letterheads, quotations and professional documents.</p></article>
+  <article class="card reveal"><div class="card-icon">🖼️</div><h3>Photo Editing</h3><p>Image enhancement, background cleanup and professional photo preparation.</p></article>
+  <article class="card reveal"><div class="card-icon">💻</div><h3>Web Design</h3><p>Modern responsive websites designed for individuals and businesses.</p></article>
+  <article class="card reveal"><div class="card-icon">📱</div><h3>Social Media Design</h3><p>Creative graphics and promotional content for social media campaigns.</p></article>
+</div></div>
+</section>
+
+<section id="skills">
+<div class="container"><div class="section-head reveal"><div class="eyebrow">My Skills</div><h2>Tools & Expertise</h2></div>
+<div class="grid">
+  <div class="card reveal"><div class="skill"><div class="skill-top"><span>Graphic Design</span><span>95%</span></div><div class="bar"><i style="--w:95%"></i></div></div><div class="skill"><div class="skill-top"><span>Photo Editing</span><span>90%</span></div><div class="bar"><i style="--w:90%"></i></div></div><div class="skill"><div class="skill-top"><span>Branding</span><span>88%</span></div><div class="bar"><i style="--w:88%"></i></div></div></div>
+  <div class="card reveal"><div class="skill"><div class="skill-top"><span>CorelDRAW</span><span>90%</span></div><div class="bar"><i style="--w:90%"></i></div></div><div class="skill"><div class="skill-top"><span>HTML & CSS</span><span>80%</span></div><div class="bar"><i style="--w:80%"></i></div></div><div class="skill"><div class="skill-top"><span>JavaScript</span><span>70%</span></div><div class="bar"><i style="--w:70%"></i></div></div></div>
+  <div class="card reveal"><div class="skill"><div class="skill-top"><span>Document Design</span><span>95%</span></div><div class="bar"><i style="--w:95%"></i></div></div><div class="skill"><div class="skill-top"><span>Microsoft Word</span><span>92%</span></div><div class="bar"><i style="--w:92%"></i></div></div><div class="skill"><div class="skill-top"><span>Creative Direction</span><span>85%</span></div><div class="bar"><i style="--w:85%"></i></div></div></div>
+</div></div>
+</section>
+
+<section id="portfolio">
+<div class="container"><div class="section-head reveal"><div class="eyebrow">Selected Work</div><h2>My Portfolio</h2><p>Replace these sample projects with your actual work.</p></div>
+<div class="filters reveal"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="branding">Branding</button><button class="filter" data-filter="graphic">Graphic Design</button><button class="filter" data-filter="documents">Documents</button><button class="filter" data-filter="web">Websites</button></div>
+<div class="grid projects">
+  <article class="card project reveal" data-category="branding"><div class="project-img">✦</div><h3>Brand Identity</h3><div class="project-meta"><span class="tag">Branding</span></div><p>Sample brand identity project for a modern business.</p></article>
+  <article class="card project reveal" data-category="graphic"><div class="project-img">🖌️</div><h3>Promotional Flyer</h3><div class="project-meta"><span class="tag">Graphic Design</span></div><p>Sample promotional design created for advertising.</p></article>
+  <article class="card project reveal" data-category="documents"><div class="project-img">📄</div><h3>Business Documents</h3><div class="project-meta"><span class="tag">Documents</span></div><p>Professional invoice, quotation and letterhead design.</p></article>
+  <article class="card project reveal" data-category="web"><div class="project-img">💻</div><h3>Business Website</h3><div class="project-meta"><span class="tag">Web Design</span></div><p>Responsive website concept for a growing business.</p></article>
+  <article class="card project reveal" data-category="graphic"><div class="project-img">📢</div><h3>Social Media Campaign</h3><div class="project-meta"><span class="tag">Graphic Design</span></div><p>Creative social media graphics for a promotional campaign.</p></article>
+  <article class="card project reveal" data-category="branding"><div class="project-img">◆</div><h3>Logo Collection</h3><div class="project-meta"><span class="tag">Branding</span></div><p>A collection of modern logo concepts.</p></article>
+</div></div>
+</section>
+
+<section class="why">
+<div class="container"><div class="section-head reveal"><div class="eyebrow">Why Dave Design</div><h2>Creative work with purpose.</h2><p>I combine creativity, presentation and attention to detail to deliver designs that communicate clearly.</p></div>
+<div class="grid">
+  <div class="card reveal"><div class="card-icon">✓</div><h3>Professional Designs</h3><p>Clean and polished visual work built for a professional impression.</p></div>
+  <div class="card reveal"><div class="card-icon">⚡</div><h3>Fast Delivery</h3><p>Efficient workflow focused on getting projects completed on time.</p></div>
+  <div class="card reveal"><div class="card-icon">♥</div><h3>Attention to Detail</h3><p>Careful attention to layout, typography, spacing and presentation.</p></div>
+</div></div>
+</section>
+
+<section id="contact">
+<div class="container"><div class="section-head reveal"><div class="eyebrow">Get In Touch</div><h2>Let's create something great.</h2><p>Have a project in mind? Send a message and let's discuss it.</p></div>
+<div class="contact-grid">
+  <div class="contact-info reveal">
+    <div class="contact-item"><small>Brand</small><strong>Dave Design</strong></div>
+    <div class="contact-item"><small>WhatsApp</small><strong>07078610634</strong></div>
+    <div class="contact-item"><small>Available For</small><strong>Design & Digital Projects</strong></div>
+    <div class="socials"><a href="https://wa.me/2347078610634" target="_blank">WA</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="TikTok">tk</a><a href="#" aria-label="LinkedIn">in</a></div>
+  </div>
+  <form id="contactForm" class="reveal">
+    <div class="form-grid">
+      <div class="field"><label for="name">Name</label><input id="name" required placeholder="Your name"></div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@example.com"></div>
+      <div class="field"><label for="phone">Phone</label><input id="phone" placeholder="Phone number"></div>
+      <div class="field"><label for="service">Service</label><select id="service"><option>Graphic Design</option><option>Logo & Branding</option><option>Document Design</option><option>Photo Editing</option><option>Web Design</option><option>Social Media Design</option></select></div>
+      <div class="field full"><label for="message">Message</label><textarea id="message" required placeholder="Tell me about your project..."></textarea></div>
+    </div>
+    <button class="btn primary" type="submit">Send via WhatsApp</button>
+  </form>
+</div></div>
+</section>
+</main>
+
+<footer>
+<div class="container"><div class="footer-grid"><div><div class="footer-title">Dave Design</div><p>Creative designs. Professional results.</p></div><div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a></div></div><div class="copyright">© 2026 Dave Design. All Rights Reserved.</div></div>
+</footer>
+<button class="top" id="topBtn" aria-label="Back to top">↑</button>
+<div class="toast" id="toast">Message prepared for WhatsApp.</div>
+
+<script>
+const menuBtn=document.querySelector('.menu-btn');
+const nav=document.querySelector('.nav-links');
+
+if (menuBtn && nav) {
+  menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+}
+
+// Reveal animation with a fallback for browsers that do not support IntersectionObserver.
+const revealElements = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add('show'));
+}
+
+const filters=document.querySelectorAll('.filter'), projects=document.querySelectorAll('.project');
+filters.forEach(btn=>btn.addEventListener('click',()=>{
+  filters.forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+  const f=btn.dataset.filter;
+  projects.forEach(p=>p.style.display=(f==='all'||p.dataset.category===f)?'block':'none');
+}));
+
+const topBtn=document.getElementById('topBtn');
+window.addEventListener('scroll',()=>{
+  topBtn.style.display=window.scrollY>500?'grid':'none';
+  const sections=[...document.querySelectorAll('main section[id]')];
+  let current='home';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-160)current=s.id});
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+});
+topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const service=document.getElementById('service').value;
+  const message=document.getElementById('message').value.trim();
+  const text = `Hello Dave Design, my name is ${name}. I am interested in ${service}.\n\n${message}`;
+  const whatsappUrl = `https://wa.me/2347078610634?text=${encodeURIComponent(text)}`;
+  window.open(whatsappUrl, '_blank');
+  const toast=document.getElementById('toast'); toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),2500);
+});
+</script>
+</body>
+</html>
